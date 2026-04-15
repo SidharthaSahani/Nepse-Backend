@@ -6,6 +6,10 @@ const cheerio = require("cheerio");
 const app = express();
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("NEPSE Daily Backend is running!");
+});
+
 const HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
   "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -393,7 +397,7 @@ app.get("/api/nepse", async (req, res) => {
   res.json(data);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000 ;
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 });
